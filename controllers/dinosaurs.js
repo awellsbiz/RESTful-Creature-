@@ -7,6 +7,7 @@ const fs = require('fs')
 // helper function to read the dino db
 const readDinos = () => {
     // use the filesystem to read the dino json
+    
     const dinosaurs = fs.readFileSync("./dinosaurs.json")
     // parse the raw json to js
     const dinoData = JSON.parse(dinosaurs)
@@ -39,7 +40,7 @@ router.get('/new', (req, res) => {
 })
 
 // POST /dinosaurs -- CREATE a new dino in the db
-router.post('/dinosaurs', (req, res) => {
+router.post('/', (req, res) => {
     console.log(req.body)//POST from data shows up in req.body
     const dinos = readDinos() 
     //push the dino from req.body into the array of dinos
